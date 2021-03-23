@@ -1,0 +1,97 @@
+* {
+    font-family: $fontMain;
+    font-size: 16px;
+    color: #14171A;
+}
+
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+h1 {
+    text-align: center;
+    @include adaptiv-font(40, 20);
+    margin: 6vh 0;
+}
+
+.cust_slider-arrows {
+    display: flex;
+    width: max-content;
+    background: #fff;
+
+    .cust-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 56px;
+        width: 54px;
+        border-top: 2px solid #000;
+        border-bottom: 2px solid #000;
+        position: relative;
+
+        &::after,
+        &::before {
+            content: '';
+            display: flex;
+            width: 3px;
+            position: absolute;
+            height: 10px;
+            background-color: #000;
+            transform: rotate(45deg);
+            top: 36%;
+            transition: all .4s;
+        }
+
+        &::before {
+            transform: rotate(135deg);
+            top: auto;
+            bottom: 36%;
+        }
+
+        &_prev {
+            border-left: 2px solid #000;
+        }
+
+        &_next {
+            border-right: 2px solid #000;
+
+            &::after {
+                transform: rotate(135deg);
+            }
+
+            &::before {
+                transform: rotate(45deg);
+            }
+        }
+
+        &:hover {
+            border-color: #0054A6;
+
+            &::after,
+            &::before {
+                background-color: #0054A6;
+            }
+        }
+    }
+
+    .separator {
+        display: flex;
+        height: 56px;
+        width: 2px;
+        background: #000;
+    }
+
+    &:hover {
+        .separator {
+            background-color: #0054A6;
+        }
+    }
+}
